@@ -5,6 +5,7 @@ Its explanation can be found in the README file.
 */
 
 #include <stdio.h>
+#include <string.h>
 
 char* char_to_ascii_string( char character ) {
     /*
@@ -33,17 +34,19 @@ char* tier_one_encryption( char* message, int len_message ) {
     Converting a string to its ascii form and separating each character's ascii string by white spaces.
     Example: input = 'hi', return value = '104 105 '
     */
-    char* new_message;
-    char delimiter = ' ';
+    static char new_message[100];
+    char* character_ascii;
+    char* delimiter = " ";
     int i = 0;
     
     for ( i = 0; i < len_message; i++ ) {
-        //char c = message + i;
-        ;
-
+        char c = message[i];
+        character_ascii = char_to_ascii_string( c );
+        strcat( new_message, character_ascii );
+        strcat( new_message, delimiter );
     }
-    
 
+    return new_message;
 }
 
 int main() {
@@ -51,6 +54,11 @@ int main() {
     char c = 'A';
     demo = char_to_ascii_string( c );
     printf( "%s\n", demo );
+
+    char* message = "hi";
+    char* tierOne;
+    tierOne = tier_one_encryption( message, 2 );
+    printf( "TierOneMessage: %s\n", tierOne );
 
     return 0;   
 }
