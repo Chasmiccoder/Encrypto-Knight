@@ -7,6 +7,8 @@ Its explanation can be found in the README file.
 #include <stdio.h>
 #include <string.h>
 
+char* delimiter = " ";
+
 char* char_to_ascii_string( char character ) {
     /*
     This function takes a character and returns a string containing the ASCII form of that character.
@@ -28,15 +30,21 @@ char* char_to_ascii_string( char character ) {
     return num_in_str_format;
 }
 
+int random_integer( ) {
+    /*
+    Function that returns a random integer from intger m, to integer n (both inclusive).
+    Example: input = 3,6    output = 5
+    */
+}
+
 
 char* tier_one_encryption( char* message, int len_message ) {
     /*
     Converting a string to its ascii form and separating each character's ascii string by white spaces.
     Example: input = 'hi', return value = '104 105 '
     */
-    static char new_message[100];
+    static char new_message[10000];
     char* character_ascii;
-    char* delimiter = " ";
     int i = 0;
     
     for ( i = 0; i < len_message; i++ ) {
@@ -47,6 +55,12 @@ char* tier_one_encryption( char* message, int len_message ) {
     }
 
     return new_message;
+}
+
+char* tier_two_encryption( char* message, int len_message ) {
+    static char new_message[10000];
+
+
 }
 
 int main() {
